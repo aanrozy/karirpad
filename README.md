@@ -10,7 +10,8 @@ MYSQL >= 5.5
 3. Import DB
 4. cp .env.example .env
 5. composer install
-6. php artisan migrate
-7. npm install  
-8. npm run dev
-9. php artisan serve
+6. php artisan key:generate
+7. php artisan migrate
+8. npm install  
+9. npm run dev
+10. php artisan serve
