@@ -7,7 +7,7 @@ MYSQL >= 5.5
 
 1. Clone Repo
 2. Buat DB Baru (karirpad)
-3. Import DB
+3. Import DB (karirpad.sql)
 4. cp .env.example .env
 5. composer install
 6. php artisan key:generate
