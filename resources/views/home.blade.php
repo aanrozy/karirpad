@@ -51,9 +51,11 @@
                         <th class="text-center">kategori</th>
                         <th class="text-center">harga</th>
                         <th class="text-center">diskon</th>
+                        <th class="text-center">setelah diskon</th>
                         <th class="text-center">aksi</th>
                     </tr>
                     <!-- {{ $i = 1 }} -->
+                    <!-- $diskon -->
                     @foreach($barang as $p)
                     <tr>
                         <td class="text-center">
@@ -63,10 +65,18 @@
                         <td class="text-center">{{ $p->nama_barang }}</td>
                         <td class="text-center">{{ $p->kategori }}</td>
                         <td class="text-center">{{ $p->harga }}</td>
-                        @if($p->harga >= 40000)
+                        @if($p->harga >= 20000 && $p->harga <= 40000)
+                            <td class="text-center">{{ $diskon = ($p->harga * 5) / 100 }}</td>
+                        @elseif($p->harga >= 40000)
                             <td class="text-center">{{ $diskon = ($p->harga * 10) / 100 }}</td>
                         @else
-                            <td class="text-center">0</td>
+                            <td class="text-center">{{ $diskon = 0 }}</td>
+                        @endif
+
+                        @if($diskon != 0)
+                            <td class="text-center">{{ $p->harga - $diskon }}</td>
+                        @else
+                            <td class="text-center">{{ $p->harga }}</td>
                         @endif
                         <td class="text-center"><a href="/edit/{{ $p->barang_id }}">Edit</a> | <a href="/hapus/{{ $p->barang_id }}">Hapus</a></td>
                     </tr>
